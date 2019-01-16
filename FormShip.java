@@ -1,4 +1,4 @@
-package lab1;
+package lab2;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -120,6 +120,19 @@ public class FormShip {
 		buttonCreate = new JButton("\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0421\u0410\u0423");
 		buttonCreate.setBounds(0, 0, 153, 25);
 		panel.add(buttonCreate);
+		
+		JButton button = new JButton("Добавить бронированную машину ");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Random rnd = new Random();
+				PanelShip.ferdinand = new ArmouredCar(rnd.nextInt(200) + 100, rnd.nextInt(1000) + 1000, Color.BLUE);
+				PanelShip.initialization = true;
+				PanelShip.ferdinand.SetPosition(rnd.nextInt(90) + 10, rnd.nextInt(90) + 10, panel.getWidth(), panel.getHeight());
+				RedrawUI();
+			    }
+			});
+		button.setBounds(185, 1, 256, 23);
+		panel.add(button);
 		
 
 		buttonCreate.addActionListener(new ActionListener() {
